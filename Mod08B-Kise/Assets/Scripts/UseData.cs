@@ -21,12 +21,12 @@ public class UseData : MonoBehaviour
     void Awake()
     {
 
-        data = CSVReader.Read("ChickWeight");//udata is the name of the csv file 
+        data = CSVReader.Read("CO2DATA");//udata is the name of the csv file 
 
         for (var i = 0; i < data.Count; i++)
         {
             //name, age, speed, description, is the headers of the database
-            print("weight " + data[i]["weight"] + " ");
+            print("xco2 " + data[i]["xco2"] + " ");
         }
 
 
@@ -64,15 +64,11 @@ public class UseData : MonoBehaviour
     }//end Update()
     void SpawnObject()
     {
-        tempObj = (data[rowCount]["weight"]);
+        tempObj = (data[rowCount]["xco2"]);
         tempFloat = System.Convert.ToSingle(tempObj);
         rowCount++;
         temptempFloat = tempFloat;
-      tempFloat = (tempFloat*0.2f);
-        if (tempFloat < 5)
-        {
-            tempFloat = temptempFloat; 
-        }
+      tempFloat = (tempFloat*0.05f);
 
 
 
